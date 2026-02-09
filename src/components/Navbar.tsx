@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, Moon, Sun, Download } from 'lucide-react';
+import { Menu, X, Moon, Sun } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
 import logo from '../img/logo.png';

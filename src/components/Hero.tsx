@@ -23,7 +23,7 @@ const Hero: React.FC = () => {
             <div className="inline-block px-4 py-2 mb-6 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-medium text-sm">
               Portfolio 2025
             </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-gray-900 dark:text-white">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-gray-900 dark:text-white">
               Bonjour, Je suis <br />
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">John Wesley Israel</span>
             </h1>
