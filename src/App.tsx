@@ -1,12 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Skills from './components/Skills';
-import Projects from './components/Projects';
-import Contact from './components/Contact';
+import Home from './components/Home';
+import ProjectDetails from './components/ProjectDetails';
 import Footer from './components/Footer';
 import { ThemeProvider } from './context/ThemeContext';
+
+const ScrollToTop = () => {
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      const id = hash.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
+
+  return null;
+};
 
 function App() {
   const [scrolled, setScrolled] = useState(false);
@@ -27,27 +43,17 @@ function App() {
 
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-        <Navbar scrolled={scrolled} />
-        <main>
-          <section id="home">
-            <Hero />
-          </section>
-          <section id="about" className="py-20">
-            <About />
-          </section>
-          <section id="skills" className="py-20 bg-gray-100 dark:bg-gray-800 transition-colors duration-300">
-            <Skills />
-          </section>
-          <section id="projects" className="py-20">
-            <Projects />
-          </section>
-          <section id="contact" className="py-20 bg-gray-100 dark:bg-gray-800 transition-colors duration-300">
-            <Contact />
-          </section>
-        </main>
-        <Footer />
-      </div>
+      <Router>
+        <ScrollToTop />
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+          <Navbar scrolled={scrolled} />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/project/:id" element={<ProjectDetails />} />
+          </Routes>
+          <Footer />
+        </div>
+      </Router>
     </ThemeProvider>
   );
 }

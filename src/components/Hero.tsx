@@ -31,6 +31,21 @@ const Hero: React.FC = () => {
               Data Engineer & <span className="font-semibold text-emerald-500 dark:text-emerald-400">Automation IA</span><br />
               <span className="text-xl md:text-2xl text-gray-500 dark:text-gray-400">& Développeur Web</span>
             </h2>
+
+            {/* Mobile Image */}
+            <div className="block md:hidden mb-8 flex justify-center">
+              <div className="relative w-64 h-64">
+                <div className="absolute inset-0 bg-gradient-to-tr from-blue-500 to-purple-500 rounded-full blur-2xl opacity-20 animate-pulse"></div>
+                <div className="relative w-full h-full rounded-2xl overflow-hidden border-2 border-white/20 shadow-2xl rotate-3 hover:rotate-0 transition-all duration-500">
+                  <img
+                    src={photo}
+                    alt="John Wesley"
+                    className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700"
+                  />
+                </div>
+              </div>
+            </div>
+
             <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-lg text-lg leading-relaxed mx-auto md:mx-0">
               Je construis des pipelines de données robustes et des automatisations intelligentes, tout en créant des expériences web modernes et performantes.
             </p>
@@ -52,7 +67,7 @@ const Hero: React.FC = () => {
           </motion.div>
 
           <motion.div
-            className="md:w-1/2 flex justify-center relative"
+            className="md:w-1/2 justify-center relative hidden md:flex"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}

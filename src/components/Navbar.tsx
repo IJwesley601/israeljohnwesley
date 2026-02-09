@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Menu, X, Moon, Sun } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link, useLocation } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
 import logo from '../img/logo.png';
-import CV from '../doc/ISRAEL CV.pdf';
 
 interface NavbarProps {
   scrolled: boolean;
@@ -12,27 +12,18 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { darkMode, toggleDarkMode } = useTheme();
+  const location = useLocation();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleDownloadCV = () => {
-    const cvUrl = CV;
-    const link = document.createElement('a');
-    link.href = cvUrl;
-    link.download = 'ISRAEL CV.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
   const navLinks = [
-    { name: 'Accueil', href: '#home' },
-    { name: 'À propos', href: '#about' },
-    { name: 'Compétences', href: '#skills' },
-    { name: 'Projets', href: '#projects' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Accueil', href: '/#home' },
+    { name: 'À propos', href: '/#about' },
+    { name: 'Compétences', href: '/#skills' },
+    { name: 'Projets', href: '/#projects' },
+    { name: 'Contact', href: '/#contact' },
   ];
 
   return (
@@ -44,25 +35,34 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
     >
       <nav className="container mx-auto py-4">
         <div className="flex justify-between items-center">
-          <a href="#home" className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2">
             <img
               src={logo}
               alt="logo"
               className="w-15 h-10 rounded-[3px] shadow-lg hover:scale-110 transition-transform duration-300"
             />
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <ul className="flex space-x-8">
               {navLinks.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors duration-300"
-                  >
-                    {link.name}
-                  </a>
+                  {location.pathname === '/' ? (
+                    <a
+                      href={link.href.replace('/', '')} // Use hash link on home page for smooth scrolling if unsupported by router hash
+                      className="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors duration-300"
+                    >
+                      {link.name}
+                    </a>
+                  ) : (
+                    <Link
+                      to={link.href}
+                      className="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors duration-300"
+                    >
+                      {link.name}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -73,15 +73,6 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
             >
               {darkMode ? <Sun size={20} /> : <Moon size={20} />}
             </button>
-            {/* CV Download button - commented out as requested */}
-            {/* <button
-              onClick={handleDownloadCV}
-              className="flex items-center p-1 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-300"
-              aria-label="Download CV"
-            >
-              <span className="mr-2">CV</span>
-              <Download size={20} />
-            </button> */}
           </div>
 
           {/* Mobile Navigation Button */}
@@ -115,13 +106,23 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
             <ul className="flex flex-col space-y-4 pb-4">
               {navLinks.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="block text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {link.name}
-                  </a>
+                  {location.pathname === '/' ? (
+                    <a
+                      href={link.href.replace('/', '')}
+                      className="block text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {link.name}
+                    </a>
+                  ) : (
+                    <Link
+                      to={link.href}
+                      className="block text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {link.name}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
