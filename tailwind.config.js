@@ -8,7 +8,6 @@ export default {
         sans: ['Inter', 'sans-serif'],
         heading: ['Poppins', 'sans-serif'],
       },
-<<<<<<< HEAD
       colors: {
         primary: '#3B82F6', // Blue-500
         secondary: '#10B981', // Emerald-500
@@ -32,11 +31,6 @@ export default {
           '50%': { transform: 'translateY(-20px)' },
         }
       }
-=======
-      animation: {
-        'bounce-slow': 'bounce 3s infinite',
-      },
->>>>>>> 272bdd068dd20352f7fef9bfd3caf7c0302778db
     },
   },
   plugins: [],
