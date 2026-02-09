@@ -6,6 +6,7 @@
   html {
     scroll-behavior: smooth;
   }
+<<<<<<< HEAD
 
   body {
     @apply text-gray-900 dark:text-gray-100 bg-slate-50 dark:bg-slate-900 transition-colors duration-300;
@@ -35,12 +36,21 @@
   h4,
   h5,
   h6 {
+=======
+  
+  body {
+    @apply font-sans text-gray-800 dark:text-gray-200;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+>>>>>>> 272bdd068dd20352f7fef9bfd3caf7c0302778db
     @apply font-heading;
   }
 }
 
 @layer components {
   .container {
+<<<<<<< HEAD
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
@@ -60,5 +70,8 @@
 
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent-blue to-accent-purple;
+=======
+    @apply max-w-7xl mx-auto;
+>>>>>>> 272bdd068dd20352f7fef9bfd3caf7c0302778db
   }
 }

@@ -37,18 +37,31 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
   ];
 
   return (
+<<<<<<< HEAD
     <header
       className={`fixed w-full z-50 transition-all duration-300 ${scrolled
         ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg shadow-lg border-b border-gray-200/50 dark:border-gray-700/50'
         : 'bg-transparent'
         }`}
+=======
+    <header 
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        scrolled ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm shadow-md' : 'bg-transparent'
+      }`}
+>>>>>>> 272bdd068dd20352f7fef9bfd3caf7c0302778db
     >
       <nav className="container mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
           <a href="#home" className="flex items-center space-x-2">
+<<<<<<< HEAD
             <img
               src={logo}
               alt="logo"
+=======
+            <img 
+              src={logo} 
+              alt="logo" 
+>>>>>>> 272bdd068dd20352f7fef9bfd3caf7c0302778db
               className="w-15 h-10 rounded-[3px] shadow-lg hover:scale-110 transition-transform duration-300"
             />
           </a>
@@ -75,14 +88,24 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
               {darkMode ? <Sun size={20} /> : <Moon size={20} />}
             </button>
             {/* Bouton de téléchargement du CV */}
+<<<<<<< HEAD
             {/* <button
+=======
+            <button
+>>>>>>> 272bdd068dd20352f7fef9bfd3caf7c0302778db
               onClick={handleDownloadCV}
               className="flex items-center p-1 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-300"
               aria-label="Download CV"
             >
+<<<<<<< HEAD
               <span className="mr-2">CV</span>
               <Download size={20} />
             </button> */}
+=======
+              <span className="mr-2">CV</span> {/* Texte "CV" à côté de l'icône */}
+              <Download size={20} />
+            </button>
+>>>>>>> 272bdd068dd20352f7fef9bfd3caf7c0302778db
           </div>
 
           {/* Mobile Navigation Button */}
