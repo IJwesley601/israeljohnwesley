@@ -35,15 +35,34 @@ const ProjectDetails: React.FC = () => {
                     transition={{ duration: 0.5 }}
                 >
                     <div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-xl border border-gray-100 dark:border-gray-700">
-                        {/* Header Image */}
-                        <div className="h-64 md:h-96 w-full overflow-hidden relative">
-                            <img
-                                src={project.image}
-                                alt={project.title}
-                                className="w-full h-full object-cover object-center"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
-                            <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10 text-white">
+                        {/* Header Image(s) */}
+                        <div className={`w-full overflow-hidden relative ${Array.isArray(project.image) ? 'min-h-[300px]' : 'h-64 md:h-96'}`}>
+                            {Array.isArray(project.image) ? (
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 bg-gray-100 dark:bg-gray-900">
+                                    {project.image.map((img, index) => (
+                                        <div key={index} className="relative aspect-video rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700">
+                                            <img
+                                                src={img}
+                                                alt={`${project.title} - flux ${index + 1}`}
+                                                className="w-full h-full object-cover"
+                                            />
+                                            <div className="absolute top-2 left-2 bg-black/50 backdrop-blur-md text-white text-xs px-2 py-1 rounded">
+                                                Vue {index + 1}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            ) : (
+                                <>
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        className="w-full h-full object-cover object-center"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
+                                </>
+                            )}
+                            <div className={`absolute bottom-6 left-6 md:bottom-10 md:left-10 text-white ${Array.isArray(project.image) ? 'relative !bottom-auto !left-auto p-6 !text-gray-900 dark:!text-white' : ''}`}>
                                 <span className={`px-3 py-1 text-xs font-bold rounded-full shadow-sm ${project.type === 'automation' ? 'bg-emerald-500' : 'bg-blue-600'
                                     } mb-3 inline-block`}>
                                     {project.category}

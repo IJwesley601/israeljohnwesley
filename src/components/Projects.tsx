@@ -65,19 +65,45 @@ const Projects: React.FC = () => {
                 <div className="absolute inset-0 bg-gray-900/10 group-hover:bg-gray-900/0 transition-colors z-10"></div>
                 {/* Image Link */}
                 {project.type === 'automation' ? (
-                  <Link to={`/project/${project.id}`}>
+                  <Link to={`/project/${project.id}`} className="block h-full w-full">
+                    {Array.isArray(project.image) ? (
+                      <div className="flex h-full w-full">
+                        {project.image.map((img, index) => (
+                          <img
+                            key={index}
+                            src={img}
+                            alt={`${project.title} - part ${index + 1}`}
+                            className="w-1/2 h-full object-cover transform group-hover:scale-110 transition-transform duration-700 cursor-pointer border-r border-gray-100 last:border-0"
+                          />
+                        ))}
+                      </div>
+                    ) : (
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 cursor-pointer"
+                      />
+                    )}
+                  </Link>
+                ) : (
+                  Array.isArray(project.image) ? (
+                    <div className="flex h-full w-full">
+                      {project.image.map((img, index) => (
+                        <img
+                          key={index}
+                          src={img}
+                          alt={`${project.title} - part ${index + 1}`}
+                          className="w-1/2 h-full object-cover transform group-hover:scale-110 transition-transform duration-700 border-r border-gray-100 last:border-0"
+                        />
+                      ))}
+                    </div>
+                  ) : (
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 cursor-pointer"
+                      className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                     />
-                  </Link>
-                ) : (
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                  />
+                  )
                 )}
 
                 <div className="absolute top-4 right-4 z-20">

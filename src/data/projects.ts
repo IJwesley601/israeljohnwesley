@@ -14,7 +14,7 @@ export interface Project {
     type: 'web' | 'automation';
     category: string;
     description: string;
-    image: string;
+    image: string | string[];
     tags: string[];
     demoLink?: string;
     codeLink?: string;
@@ -85,12 +85,12 @@ export const projects: Project[] = [
     },
     {
         id: 7,
-        title: 'Workflow "LinkedIn Jobs Scraper + Assistante Scraper LinkedIn" ',
+        title: 'LinkedIn Jobs Scraper + Assistante IA',
         type: 'automation',
         category: 'Assistante + Scraper',
         description: `Ces deux workflows forment un système complet d'assistance IA avec scraping d'offres d'emploi LinkedIn. Le premier workflow ("LinkedIn Jobs Scraper") extrait automatiquement les offres d'emploi via l'API Apify selon des critères de poste et localisation, formate les données (titre, entreprise, salaire, description) et les sauvegarde dans Google Sheets. Le second workflow ("Assistante Scraper LinkedIn") sert d'interface conversationnelle qui orchestre le premier en plus de gérer le calendrier Google et les emails Gmail. L'utilisateur peut demander à l'assistant de rechercher des offres d'emploi via une conversation naturelle, et le système déclenche automatiquement le scraping avec les paramètres appropriés.`,
-        image: n8n1,
-        tags: ['n8n', 'Gmail', 'MinIO', 'Security'],
+        image: [n8n1, n8n2],
+        tags: ['n8n', 'Gmail', 'MinIO', 'Security', 'Apify', 'LinkedIn', 'Calendar'],
     },
     {
         id: 8,
@@ -100,14 +100,5 @@ export const projects: Project[] = [
         description: 'Assistant conversationnel intelligent basé sur RAG. Télécharge des documents depuis Google Drive, les indexe dans PostgreSQL via embeddings OpenAI, et répond aux questions clients avec mémoire conversationnelle.',
         image: n8nAgentRAG,
         tags: ['n8n', 'RAG', 'OpenAI', 'PostgreSQL'],
-    },
-    {
-        id: 9,
-        title: 'LinkedIn Jobs Scraper',
-        type: 'automation',
-        category: 'Data Pipeline',
-        description: 'Système complet d\'assistance IA avec scraping d\'offres LinkedIn. Extrait automatiquement les offres via Apify, formate les données et permet une recherche via conversation naturelle avec gestion de calendrier et emails.',
-        image: n8n2,
-        tags: ['n8n', 'Apify', 'LinkedIn', 'Gmail', 'Calendar'],
     },
 ];
