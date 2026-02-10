@@ -85,10 +85,10 @@ export const projects: Project[] = [
     },
     {
         id: 7,
-        title: 'Email Processing Workflow',
+        title: 'Workflow "LinkedIn Jobs Scraper + Assistante Scraper LinkedIn" ',
         type: 'automation',
-        category: 'Email Automation',
-        description: 'Système automatisé de gestion des emails avec validation de sécurité. Vérifie l\'identité des expéditeurs, contrôle leur statut, gère les pièces jointes (conversion, upload MinIO), et les liens Google Drive.',
+        category: 'Assistante + Scraper',
+        description: `Ces deux workflows forment un système complet d'assistance IA avec scraping d'offres d'emploi LinkedIn. Le premier workflow ("LinkedIn Jobs Scraper") extrait automatiquement les offres d'emploi via l'API Apify selon des critères de poste et localisation, formate les données (titre, entreprise, salaire, description) et les sauvegarde dans Google Sheets. Le second workflow ("Assistante Scraper LinkedIn") sert d'interface conversationnelle qui orchestre le premier en plus de gérer le calendrier Google et les emails Gmail. L'utilisateur peut demander à l'assistant de rechercher des offres d'emploi via une conversation naturelle, et le système déclenche automatiquement le scraping avec les paramètres appropriés.`,
         image: n8n1,
         tags: ['n8n', 'Gmail', 'MinIO', 'Security'],
     },
