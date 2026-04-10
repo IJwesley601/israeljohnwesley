@@ -206,17 +206,19 @@ const Projects: React.FC = () => {
         </AnimatePresence>
       </motion.div>
 
-      <div className="text-center mt-16">
-        <a
-          href="https://github.com/IJwesley601"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center px-8 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-semibold rounded-full hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
-        >
-          <Github size={20} className="mr-2" />
-          Voir plus sur GitHub
-        </a>
-      </div>
+      {activeType === 'web' && (
+        <div className="text-center mt-16">
+          <a
+            href="https://github.com/IJwesley601"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-8 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-semibold rounded-full hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+          >
+            <Github size={20} className="mr-2" />
+            Voir plus sur GitHub
+          </a>
+        </div>
+      )}
     </div>
   );
 };

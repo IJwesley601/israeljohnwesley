@@ -16,33 +16,13 @@ const About: React.FC = () => {
         <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
       </motion.div>
 
-      <div className="flex flex-col lg:flex-row items-center gap-12">
+      <div className="max-w-4xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="lg:w-1/2"
-        >
-          <div className="relative">
-            <div className="w-full h-80 md:h-[500px] rounded-2xl overflow-hidden shadow-2xl group bg-gray-900">
-              <img
-                src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
-                alt="Data Engineering & AI"
-                className="w-full h-full object-contain transform transition-transform duration-700 group-hover:scale-105"
-              />
-            </div>
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg hidden md:block -z-10"></div>
-            <div className="absolute -top-6 -left-6 w-24 h-24 border-4 border-blue-500/20 rounded-full hidden md:block -z-10"></div>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="lg:w-1/2"
+          className="w-full"
         >
           <h3 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">
             Data Engineer & <span className="text-emerald-500 dark:text-emerald-400">Automation IA </span>
@@ -71,7 +51,7 @@ const About: React.FC = () => {
               <Briefcase size={20} className="text-blue-600 dark:text-blue-400 mr-2" />
               <span className="text-gray-700 dark:text-gray-300">Expérience : 2+ Ans</span>
             </div>
-            <div className="col-span-1 md:col-span-2 flex items-start space-x-3 mt-2 bg-gray-50 dark:bg-gray-800/50 p-3 rounded-lg border border-gray-100 dark:border-gray-700">
+            <div className="col-span-1 md:col-span-1 flex items-start space-x-3 mt-2 bg-gray-50 dark:bg-gray-800/50 p-3 rounded-lg border border-gray-100 dark:border-gray-700">
               <GraduationCap size={24} className="text-blue-600 dark:text-blue-400 mt-1 flex-shrink-0" />
               <div className="text-gray-700 dark:text-gray-300 text-sm">
                 <span className="font-bold block text-gray-900 dark:text-white mb-1">Master II en Sciences des Données et Intelligence Artificielle</span>
@@ -79,7 +59,7 @@ const About: React.FC = () => {
                 <span className="opacity-75">Université de Fianarantsoa</span>
               </div>
             </div>
-            <div className="col-span-1 md:col-span-2 flex items-start space-x-3 mt-2 bg-gray-50 dark:bg-gray-800/50 p-3 rounded-lg border border-gray-100 dark:border-gray-700">
+            <div className="col-span-1 md:col-span-1 flex items-start space-x-3 mt-2 bg-gray-50 dark:bg-gray-800/50 p-3 rounded-lg border border-gray-100 dark:border-gray-700">
               <GraduationCap size={24} className="text-blue-600 dark:text-blue-400 mt-1 flex-shrink-0" />
               <div className="text-gray-700 dark:text-gray-300 text-sm">
                 <span className="font-bold block text-gray-900 dark:text-white mb-1">Diplôme Science Technologique</span>
@@ -89,12 +69,14 @@ const About: React.FC = () => {
             </div>
           </div>
 
-          <a
-            href="#contact"
-            className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 inline-block"
-          >
-            Discutons de vos données
-          </a>
+          <div className="flex justify-center mt-8">
+            <a
+              href="#contact"
+              className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 inline-block"
+            >
+              Discutons de vos données
+            </a>
+          </div>
         </motion.div>
       </div>
     </div>

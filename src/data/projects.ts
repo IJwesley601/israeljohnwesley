@@ -7,6 +7,7 @@ import n8nScraping from '../img/n8nscrapping+apify.png';
 import n8nAgentRAG from '../img/n8nAGENTRAG.png';
 import n8n1 from '../img/n8n1.png';
 import n8n2 from '../img/n8n2.png';
+import ragMajor from '../img/RAG MAJOR.png';
 
 export interface Project {
     id: number;
@@ -100,5 +101,14 @@ export const projects: Project[] = [
         description: 'Assistant conversationnel intelligent basé sur RAG. Télécharge des documents depuis Google Drive, les indexe dans PostgreSQL via embeddings OpenAI, et répond aux questions clients avec mémoire conversationnelle.',
         image: n8nAgentRAG,
         tags: ['n8n', 'RAG', 'OpenAI', 'PostgreSQL'],
+    },
+    {
+        id: 9,
+        title: 'SANTÉ AI - RAG & API',
+        type: 'automation',
+        category: 'Health Tech & AI',
+        description: 'Infrastructure d\'IA médicale avec API REST sécurisée (JWT/OAuth2). Intègre une automatisation de bout en bout du traitement des données vers PostgreSQL et un puissant moteur de recherche sémantique RAG (OpenAI, PGVector) pour l\'exploration contextuelle des dossiers patients.',
+        image: ragMajor,
+        tags: ['n8n', 'OpenAI', 'RAG', 'PGVector', 'API REST'],
     },
 ];
